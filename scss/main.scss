@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+$light:   #f5f3f5;
+$dark:    #302b27;
+$color-1: #1b264f;
+$color-2: #274690;
+$color-3: #576ca8;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@import './header.scss';
+@import './currency.scss';
+@import './store.scss';
+@import './loader-modal.scss';
+@import './footer.scss';

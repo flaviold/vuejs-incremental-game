@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="app">
+    <header class="navbar">
+      <div class="title">
+        Vue.js Incremental
+        <span class="version">v{{ version }}</span>
+      </div>
+      <div class="options">
+        <button @click="save()"><i class="fas fa-save"></i> Save</button>
+        <button @click="modalActive = true"><i class="fas fa-folder"></i> Load</button>
+        <button @click="reset()"><i class="fas fa-trash"></i> Reset</button>
+      </div>
+    </header>
+    <main>
+      <div class="currency">
+        <span><i class="fas fa-coins"></i> ({{ format(game.revenue || 0) }} <i class="fas fa-coins"></i>/s) : {{ format(game.coins || 0) }}</span>
+      </div>
+      <div class="stores">
+        <button 
+          @click="buyStore(index)" 
+          class="store" 
+          v-for="(store, index) in game.storesOwned"
+          :disabled="store.cost > game.coins">
+          <span class="text-center">{{ store.name }}</span>
+          <span>Qtd: {{ format(store.amount) }}</span>
+          <span>Cost: {{ format(store.cost) }}</span>
+          <span>Revenue: {{ format(store.revenue) }} <i class="fas fa-coins"></i>/s</span>
+        </button>
+        <button 
+          @click="buyStore()"
+          v-if="getNewStoreValue()"
+          :disabled="getNewStoreValue() > game.coins">
+          Buy new store ({{ format(getNewStoreValue()) }})
+        </button>
+      </div>
+      <div v-if="modalActive" class="modal-container">
+        <div class="wrapper">
+          <div class="load-modal">
+            <input type="file" accept="application/json" @change="getFiles">
+            <span v-if="loadError" class="error">Failed to load save game!</span>
+            <div class="actions">
+              <button :disabled="!file" @click="loadFile" class="load"><i class="fas fa-folder"></i> Load</button>
+              <button @click="modalActive = false">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="links">
+        <a href="https://github.com/flaviold">
+          <i class="fab fa-github-square fa-2x"></i>
+          <span>flaviold</span>
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+  <script src="js/vue.js"></script>
+  <script src="js/index.js" type="module"></script>
+</body>
+</html>

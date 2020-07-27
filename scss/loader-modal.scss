@@ -1,0 +1,57 @@
+.modal-container {
+  background-color: rgba(#000, .5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .load-modal {
+      background-color: $light;
+      padding: 15px;
+      border-radius: 10px;
+      min-width: 400px;
+
+      input {
+        display: block;
+      }
+
+      .error {
+        font-size: 0.8rem;
+        color: red;
+        font-weight: bold;
+      }
+
+      .actions {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-around;
+
+        button {
+          padding: 10px;
+          border: 1px solid $dark;
+          border-radius: 4px;
+          font-weight: bold;
+          cursor: pointer;
+
+          &.load {
+            background-color: $color-2;
+            color: $light;
+
+            &:disabled {
+              background-color: lighten($color-2, 10);
+              cursor: no-drop;
+            }
+          }
+        }
+      }
+    }
+  }
+}

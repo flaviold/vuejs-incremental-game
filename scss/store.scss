@@ -1,0 +1,41 @@
+.stores {
+  border: 2px solid $dark;
+  margin: 10px;
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: $light;
+
+  .store {
+    background-color: $color-2;
+    color: $light;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0;
+    display: block;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+
+    span {
+      display: block;
+    }
+
+    &:hover {
+      background-color: lighten($color-2, 5);
+    }
+    
+    &:active {
+      background-color: darken($color-2, 5);
+    }
+    
+    &:disabled {
+      background-color: lighten($color-2, 20);
+      cursor: no-drop;
+    }
+
+    & + button {
+      margin-top: 8px;
+    }
+  }
+}

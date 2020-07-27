@@ -1,0 +1,43 @@
+header {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $color-1;
+  color: $light;
+
+  .title {
+    font-size: 1.3rem;
+    padding: 15px;
+
+    .version {
+      font-size: .8rem;
+      color: darken($light, 25);
+    }
+  }
+
+  .options {
+    height: 100%;
+    display: flex;
+
+    button {
+      margin: 0;
+      background-color: transparent;
+      border: 0;
+      padding: 15px;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      color: $light;
+      text-transform: uppercase;
+      font-weight: 500;
+
+      &:hover {
+        background-color: lighten($color-1, 5);
+      }
+
+      &:focus {
+        border: 0;
+      }
+    }
+  }
+}

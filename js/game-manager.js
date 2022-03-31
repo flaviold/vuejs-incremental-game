@@ -6,7 +6,9 @@ export class GameManager {
   lastTimePlayed = Date.now();
 
   constructor() {
-    this.load(localStorage.getItem('game'));
+    if (localStorage.getItem('game')) {
+      this.load(localStorage.getItem('game'));
+    }
   }
   
   get revenue() {
